@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { getAll, post, put, deleteById } from '../memdb.js';
+import { getAll, post, put, deleteById } from './memdb.js';
 import './App.css'
-import { CustomerList } from './CustomerList';
-import { CustomerAddUpdateForm } from './CustomerAddUpdateForm';
+import { CustomerList } from './components/CustomerList.js';
+import { CustomerAddUpdateForm } from './components/CustomerAddUpdateForm.js';
 
 function log(message){console.log(message);}
 
