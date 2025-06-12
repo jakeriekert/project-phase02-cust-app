@@ -1,7 +1,7 @@
 import React from 'react';
 //import { formObject, handleListClick } from '../App.js'
 
-export function CustomerList({ customers, formObject, selectedCustomerId, handleListClick }) {
+export function CustomerList({ customers, selectedCustomerId, handleListClick }) {
   return (
       <div className="boxed" >
         <h4>Customer List</h4>
@@ -17,7 +17,7 @@ export function CustomerList({ customers, formObject, selectedCustomerId, handle
             {customers.map(
               (item, index) => {
                 return (<tr key={item.id} 
-                className={ (item.id === formObject.id) ?'selected': ''}  
+                className={ (item.id === selectedCustomerId) ?'selected': ''}  
                 onClick={()=>handleListClick(item)} 
                 >
                   <td>{item.name}</td>
