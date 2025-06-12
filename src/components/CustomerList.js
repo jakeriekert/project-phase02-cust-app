@@ -1,5 +1,5 @@
 import React from 'react';
-import { formObject, handleListClick } from './App.js'
+import { formObject, handleListClick } from './src/App.js'
 
 export function CustomerList({ customers, selectedCustomerId, handleListClick }) {
   return (
