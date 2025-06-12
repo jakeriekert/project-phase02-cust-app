@@ -1,7 +1,7 @@
 import React from 'react';
 //import { formObject, handleListClick } from '../App.js'
 
-export function CustomerList({ customers, selectedCustomerId, handleListClick }) {
+export function CustomerList({ customers, selectedCustomerId, onSelectCustomer }) {
   return (
       <div className="boxed" >
         <h4>Customer List</h4>
@@ -18,7 +18,7 @@ export function CustomerList({ customers, selectedCustomerId, handleListClick })
               (item, index) => {
                 return (<tr key={item.id} 
                 className={ (item.id === selectedCustomerId) ?'selected': ''}  
-                onClick={()=>handleListClick(item)} 
+                onClick={()=>onSelectCustomer(item)} 
                 >
                   <td>{item.name}</td>
                   <td>{item.email}</td>
