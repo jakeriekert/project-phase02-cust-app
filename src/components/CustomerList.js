@@ -1,7 +1,7 @@
 import React from 'react';
-import { formObject, handleListClick } from '../App.js'
+//import { formObject, handleListClick } from '../App.js'
 
-export function CustomerList({ customers, selectedCustomerId, handleListClick }) {
+export function CustomerList({ customers, formObject, selectedCustomerId, handleListClick }) {
   return (
       <div className="boxed" >
         <h4>Customer List</h4>
