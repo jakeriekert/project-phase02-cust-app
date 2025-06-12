@@ -3,7 +3,7 @@ import React from 'react';
 
 export function CustomerAddUpdateForm({
   formObject, mode,
-  handleInputChange,
+  onInputChange,
   onSaveClick,
   onDeleteClick,
   onCancelClick
@@ -22,7 +22,7 @@ export function CustomerAddUpdateForm({
                 <td><input
                     type="text"
                     name="name"
-                    onChange={(e) => handleInputChange(e)}
+                    onChange={(e) => onInputChange(e)}
                     value={formObject.name}
                     placeholder="Customer Name"
                     required /></td>
@@ -32,7 +32,7 @@ export function CustomerAddUpdateForm({
                 <td><input
                     type="email"
                     name="email"
-                    onChange={(e) => handleInputChange(e)}
+                    onChange={(e) => onInputChange(e)}
                     value={formObject.email}
                     placeholder="name@company.com" /></td>
                 </tr>
@@ -41,7 +41,7 @@ export function CustomerAddUpdateForm({
                 <td><input
                     type="password"
                     name="password"
-                    onChange={(e) => handleInputChange(e)}
+                    onChange={(e) => onInputChange(e)}
                     value={formObject.password}
                     placeholder="password" /></td>
                 </tr>
