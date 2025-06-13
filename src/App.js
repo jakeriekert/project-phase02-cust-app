@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { getAll, post, put, deleteById } from './memdb.js';
+//import { getAll, post, put, deleteById } from './memdb.js';
+import { getAll, post, put, deleteById } from './restdb.js'; // new imort for REST
 import './App.css'
 import { CustomerList } from './components/CustomerList.js';
 import { CustomerAddUpdateForm } from './components/CustomerAddUpdateForm.js';
@@ -12,11 +13,19 @@ export function App(params) {
   const [customers, setCustomers] = useState([]);
   const [formObject, setFormObject] = useState (blankCustomer);
   let mode = (formObject.id >= 0) ? 'Update' : 'Add';
-  useEffect(() => { getCustomers() }, []);
+  useEffect(() => { getCustomers() }, [formObject]); // added formObject
+
+/* OLD getAll
 
   const getCustomers =  function(){
     log("in getCustomers()");
     setCustomers(getAll());
+  } */
+ 
+  // NEW getCustomers
+  const getCustomers = function() {
+    log("in getCustomers()");
+    getAll(setCustomers);
   }
 
   const handleListClick = function(item){
@@ -43,13 +52,27 @@ export function App(params) {
     setFormObject (blankCustomer);
   }
 
+/* OLD DeleteByID
+
   let onDeleteClick = function () {
     if (formObject.id >= 0) {
       deleteById(formObject.id);   
     }
     setFormObject(blankCustomer);
   }
+ */
 
+// NEW DeleteById
+  let onDeleteClick = function () {
+    let postOpCallback = () => { setFormObject(blankCustomer); }
+    if (formObject.id >= 0) {
+      deleteById(formObject.id, postOpCallback);
+    } else {
+      setFormObject(blankCustomer);
+    }
+  }
+
+/* OLD onSaveClick  
   let onSaveClick = function () {
     if (mode === 'Add') {
       post(formObject);
@@ -60,6 +83,18 @@ export function App(params) {
     setFormObject(blankCustomer);
     log("in onSaveClick()");
   }
+ */
+
+// NEW onSaveClick
+  let onSaveClick = function () {
+    if (mode === 'Add') {
+      post(formObject, () => setFormObject(blankCustomer));
+    }
+    if (mode === 'Update') {
+      put(formObject.id, formObject, () => setFormObject(blankCustomer));
+    }
+    log("in onSaveClick()");
+  };
 
   return (
     <div>
