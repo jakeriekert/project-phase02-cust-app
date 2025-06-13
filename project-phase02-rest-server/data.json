@@ -14,33 +14,9 @@
     },
     {
       "id": 2,
-      "name": "Scott Ramsey dfd",
+      "name": "Scott Ramsey",
       "email": "scottr@abc.com",
       "password": "scottr"
-    },
-    {
-      "name": "",
-      "email": "",
-      "password": "",
-      "id": 3
-    },
-    {
-      "name": "",
-      "email": "",
-      "password": "",
-      "id": 4
-    },
-    {
-      "name": "",
-      "email": "",
-      "password": "",
-      "id": 5
-    },
-    {
-      "name": "",
-      "email": "",
-      "password": "sdf",
-      "id": 6
     }
   ]
 }
